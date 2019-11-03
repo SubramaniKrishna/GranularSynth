@@ -1,0 +1,68 @@
+#N canvas 0 0 1920 976 10;
+#X obj 308 121 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2500 1;
+#X obj 358 188 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X obj 408 123 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6200 1;
+#X obj 458 133 vsl 15 128 0 500 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3900 1;
+#X obj 508 196 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 558 198 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X obj 609 122 vsl 15 128 0 20 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 11700 1;
+#X obj 321 304 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 268 293 5 0 0 0 - - -;
+#X floatatom 418 284 5 0 0 0 - - -;
+#X floatatom 468 282 5 0 0 0 - - -;
+#X floatatom 669 253 5 0 0 0 - - -;
+#X obj 330 332 apna_GS aaaaaaaaaaaaaaaaaaaaaaaaaaa;
+#X text 194 332 Inlet 1 - Main Switch;
+#X text 229 356 Inlet 2 - Grain Duration;
+#X text 229 376 Inlet 3 - Choice of waveform;
+#X text 276 393 Inlet 4 - Frequency Mean;
+#X text 446 392 Inlet 5 - Frequency Variance;
+#X text 478 376 Inlet 6 - Choice of Distribution;
+#X text 508 359 Inlet 7 - Choice of Envelope;
+#X text 552 337 Inlet 8 - Kaiser Parameter beta;
+#X obj 777 214 dac~;
+#X obj 790 144 spigot~;
+#X obj 847 117 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 779 17 catch~ grain_audio;
+#X text 99 553 Demo for the Granulator The python code in the notebook
+should send the required parameters via the sockets to this patch so
+keep that code running as well.;
+#X text 309 97 2;
+#X text 362 166 3;
+#X text 410 101 4;
+#X text 462 110 5;
+#X text 509 175 6;
+#X text 563 177 7;
+#X text 613 98 8;
+#X text 322 287 1;
+#X obj 280 44 netreceive 12440;
+#X obj 458 8 netreceive 12442;
+#X obj 558 36 netreceive 12441;
+#X connect 0 0 8 0;
+#X connect 0 0 12 1;
+#X connect 1 0 12 2;
+#X connect 2 0 9 0;
+#X connect 2 0 12 3;
+#X connect 3 0 10 0;
+#X connect 3 0 12 4;
+#X connect 4 0 12 5;
+#X connect 5 0 12 6;
+#X connect 6 0 11 0;
+#X connect 6 0 12 7;
+#X connect 7 0 12 0;
+#X connect 22 1 21 0;
+#X connect 22 1 21 1;
+#X connect 23 0 22 1;
+#X connect 24 0 22 0;
+#X connect 34 0 2 0;
+#X connect 35 0 4 0;
+#X connect 36 0 5 0;

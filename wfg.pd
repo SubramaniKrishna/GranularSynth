@@ -1,0 +1,82 @@
+#N canvas 0 0 1920 976 10;
+#X obj -212 172 t b f;
+#X obj -198 221 *~ 1000;
+#X obj -126 287 *~ 0;
+#X obj -198 249 clip~ -1 1;
+#X obj -332 181 osc~ \$1;
+#X msg -78 236 0.1;
+#X obj -19 162 loadbang;
+#X obj 332 203 t b f;
+#X msg 391 272 0.1;
+#X obj 346 255 *~ 2;
+#X obj 346 278 -~ 1;
+#X text 442 236 sawtooth wave;
+#X obj 191 227 phasor~ \$1;
+#X obj 52 296 \$2;
+#X obj 379 308 *~ 0;
+#X obj 74 512 multiplex~ 1 2 3;
+#X obj 273 609 bp~ 200 10;
+#X obj 143 697 multiplex~ 1 2;
+#X obj -44 36 inlet;
+#X obj 184 800 outlet~;
+#X obj 833 609 *~ 0;
+#X msg 845 573 0.1;
+#X obj 800 441 phasor~ 400;
+#X obj 800 514 abs~;
+#X obj 800 465 *~ 2;
+#X obj 800 489 -~ 1;
+#X obj 800 538 *~ 2;
+#X obj 800 562 -~ 1;
+#X text 859 489 triangular wave;
+#X obj -30 531 \$3;
+#X obj 298 526 \$4;
+#X obj 362 538 \$5;
+#X text 246 796 The output of this patch is the waveform.;
+#X text 844 40 Description of the wfg patch - This patch generates
+square \, sawtooth and triangular waves. It also has an option to Band
+Pass filter the generated waveforms. It has one inlet for the frequency
+input. The creation arguments are - 1) Frequency 2) Choice of waveform(0
+for square \, 1 for sawtooth \, 2 for triangular) 3) Whether you want
+to filter the output or not 0 for no \, 1 for yes 4) BPF parameter
+centre frequency 5) BPF parameter quality factor(Inverse Bandwidth)
+;
+#X connect 0 1 4 1;
+#X connect 1 0 3 0;
+#X connect 2 0 15 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 1;
+#X connect 6 0 0 0;
+#X connect 6 0 5 0;
+#X connect 6 0 8 0;
+#X connect 6 0 7 0;
+#X connect 6 0 13 0;
+#X connect 6 0 21 0;
+#X connect 6 0 29 0;
+#X connect 6 0 30 0;
+#X connect 6 0 31 0;
+#X connect 7 1 12 1;
+#X connect 8 0 14 1;
+#X connect 9 0 10 0;
+#X connect 10 0 14 0;
+#X connect 12 0 9 0;
+#X connect 13 0 15 0;
+#X connect 14 0 15 1;
+#X connect 15 0 17 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 1;
+#X connect 17 0 19 0;
+#X connect 18 0 4 0;
+#X connect 18 0 12 0;
+#X connect 18 0 22 0;
+#X connect 20 0 15 2;
+#X connect 21 0 20 1;
+#X connect 22 0 24 0;
+#X connect 23 0 26 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 26 0 27 0;
+#X connect 27 0 20 0;
+#X connect 29 0 17 0;
+#X connect 30 0 16 1;
+#X connect 31 0 16 2;

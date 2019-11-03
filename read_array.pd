@@ -1,0 +1,64 @@
+#N canvas 0 0 1920 976 10;
+#X obj 254 43 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 550 91 10000;
+#X msg 698 201 \; \$1 resize \$2;
+#X obj 509 174 pack s f;
+#X obj 681 321 pack s s;
+#X msg 650 352 \; \$1 read \$2;
+#X obj 370 42 t b b b b;
+#X obj 472 108 symbol \$1;
+#X obj 420 235 symbol \$1;
+#X floatatom 118 478 5 0 0 0 - - -;
+#X floatatom 155 628 5 0 0 0 - - -;
+#X obj 154 551 tabread array1;
+#X obj 342 388 t b;
+#X obj 94 425 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 431 532 expr $f1 + 1;
+#X obj 269 394 delay 1;
+#X msg 260 493 set \$1;
+#X obj 253 455 symbol \$1;
+#X msg 542 732 \; \$1 resize \$2;
+#X obj 517 696 pack s f;
+#X obj 421 648 symbol \$1;
+#X obj 388 601 t b;
+#X obj 387 624 delay 1;
+#X obj 168 6 inlet;
+#X obj 617 120 print ss;
+#X obj 556 244 symbol \$2;
+#X text 905 32 This patch stores value from a text file into a declared
+array. The text file should have the first element as the size of the
+array. This patch then resizes the array to that value. The inlet is
+a bang to load the array. The creation arguments are -> 1) The name
+of the array 2) The txt file to read from(relative to the current patch)
+;
+#X connect 0 0 6 0;
+#X connect 1 0 3 1;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 0;
+#X connect 6 0 12 0;
+#X connect 6 1 25 0;
+#X connect 6 2 7 0;
+#X connect 6 3 1 0;
+#X connect 7 0 3 0;
+#X connect 7 0 24 0;
+#X connect 8 0 4 0;
+#X connect 9 0 11 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 12 0 15 0;
+#X connect 12 0 17 0;
+#X connect 13 0 9 0;
+#X connect 14 0 19 1;
+#X connect 14 0 21 0;
+#X connect 15 0 13 0;
+#X connect 16 0 11 0;
+#X connect 17 0 16 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 23 0 0 0;
+#X connect 25 0 4 1;
